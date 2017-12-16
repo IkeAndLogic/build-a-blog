@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+{%if not number_of_blogs%}
+ 
+NO Content yet
+  {%else%}
+  <ul class = "blog_container"> 
+ 
+  {%for blog in all_blogs %}     
+
+                <li class = "blog_content"> 
+                <h2 class = "blog_title">{{blog.title}}</h2>
+                <p class = "blog_body">{{blog.body}}</p>
+                <div class = "blog_date">{{blog.record}}  </div>
+                </li>    
+        
+
+                {%endfor%}
+        </ul>
+
+{%endif%}
+
+
+
+        {% endblock%}
+
+
+
+
+
