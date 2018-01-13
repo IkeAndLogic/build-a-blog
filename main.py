@@ -74,9 +74,13 @@ def newPost():
             body_error = "Please provide a body"
 
     return render_template("addPost.html",pageTitle ="Blog Added Page", title_error = title_error, body_error = body_error)
-        
 
-
+#show individual blog when link is clicked on
+@app.route("/show")
+def showPost():
+    blogID = request.args.get("id")
+    new_blog = Build_Blog.query.filter_by(id = blogID).first()
+    return render_template("newPost.html",pageTitle ="requested post", blogTitle = new_blog.title, blogBody = new_blog.body, record = new_blog.record )
 
 
 
